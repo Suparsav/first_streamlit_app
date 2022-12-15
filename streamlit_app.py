@@ -55,7 +55,7 @@ streamlit.header("The fruit Load List Contains:")
 #snopwflake-related functions.
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
-    my_cur.execute("SELECT * from fruit_load_list")
+    my_cur.execute("select * from fruit_load_list")
     return my_cur.fetchall()
 # Add a button to load the list.
 if streamlit.button('Get fruit Load list'):
@@ -67,8 +67,8 @@ if streamlit.button('Get fruit Load list'):
 
 # Allow End user to add fruit to the list.
 def insert_row_snowflake(new_fruit):
-  with my_CNX.cursor() as my_cur:
-    my_cur.execute("INSERT INTO fruit_load_list values ('from streamlit')")
+  with my_cnx.cursor() as my_cur:
+    my_cur.execute("insert into fruit_load_list values ('from streamlit')")
     return "Thanks for adding" + new_fruit
   
 add_my_fruit = streamlit.text_input('What fruit would you like to add ?')
@@ -78,5 +78,3 @@ if streamlit.button('Add a fruit to the List'):
   streamlit.text(back_from_function)
   
  
-#Don't run anything past here
-streamlit.stop()
